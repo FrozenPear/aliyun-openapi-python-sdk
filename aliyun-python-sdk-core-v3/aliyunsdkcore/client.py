@@ -234,7 +234,7 @@ class AcsClient:
 
     def _parse_error_info_from_response_body(self, response_body):
         try:
-            body_obj = json.loads(response_body)
+            body_obj = json.loads(response_body.decode('utf-8'))
             if 'Code' in body_obj and 'Message' in body_obj:
                 return (body_obj['Code'], body_obj['Message'])
             else:
